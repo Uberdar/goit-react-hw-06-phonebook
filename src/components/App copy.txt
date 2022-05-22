@@ -1,0 +1,89 @@
+// import PhonebookClass from './Phonebook/Phonebook';
+// import TodosRenderClass from './TodosRenderClass/TodosRenderClass';
+// import SearchContact from './SearchContact/SearchContact';
+// import { Component } from 'react';
+// import { nanoid } from 'nanoid';
+import Phonebook from './Phonebook/Phonebook';
+import TodoRender from './TodosRenderClass/TodosRender';
+// import { useState, useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { addAction } from 'redux/actions/action';
+
+// function fn(value) {
+//   return {
+//     type: 'addAction',
+//     payload: value,
+//   };
+// }
+
+// localStorage.setItem('localDB', JSON.stringify(dataBase));
+
+export default function App() {
+  // const dispatch = useDispatch();
+  // const selector = useSelector(state => {
+  //   localStorage.getItem('localDB', JSON.stringify(state.contacts.items));
+  // });
+  // console.log('selector: ', selector);
+  // const [dataBase, setDataBase] = useState(
+  //   (() => {
+  //     let x = localStorage.getItem('localDB');
+  //     let xx = JSON.parse(x);
+  //     return xx;
+  //   }) ?? []
+  // );
+  // const [searchValueApp, setSearchValueApp] = useState('');
+  // const deleteWithId = DBid => {
+  //   setDataBase(dataBase.filter(elem => elem.id !== DBid));
+  // };
+
+  // const formSubmitHandler = data => {
+  //   const newContact = { ...data, id: nanoid() };
+  //   let test = dataBase.find(elem => {
+  //     if (elem.name === newContact.name && elem.number === newContact.number) {
+  //       alert('this contact has allready been added');
+  //       return true;
+  //     }
+  //     return false;
+  //   });
+  //   if (!test) {
+  //     setDataBase([newContact, ...dataBase]);
+  //   }
+  // };
+  // const showSearchedValues = data => {
+  //   setSearchValueApp(data.target.value);
+  // };
+  // const filteredContacts = () => {
+  //   return dataBase.filter(elem =>
+  //     elem.name.toLocaleLowerCase().includes(searchValueApp.toLocaleLowerCase())
+  //   );
+  // };
+  // useEffect(() => {
+  //   localStorage.setItem('localDB', JSON.stringify(dataBase));
+  //   const takeLocalBD = localStorage.getItem('localDB');
+  //   const parseLocalBD = JSON.parse(takeLocalBD);
+  //   if (parseLocalBD === null) {
+  //     return setDataBase([]);
+  //   }
+  //   setDataBase(parseLocalBD);
+  // }, [dataBase]);
+  return (
+    <div>
+      {/* <button
+        onClick={() => {
+          dispatch(addAction(10));
+        }}
+      >
+        CLICK
+      </button> */}
+      <Phonebook />
+      {/* <HooksSearchContact
+        searchValueParse={showSearchedValues}
+        parseValueToSearchContact={searchValueApp}
+      /> */}
+      <TodoRender
+      // datafromdataBase={filteredContacts()}
+      // deleteSpecific={deleteWithId}
+      />
+    </div>
+  );
+}

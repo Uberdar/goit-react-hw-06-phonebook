@@ -1,0 +1,28 @@
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { itemsReducer } from './actions/reducer';
+// import phonebookReducer from './actions/reducer';
+
+// const fn({a, b}){
+//     return a+ b;
+// // }
+// {
+//     items: [],
+//     filter: '',
+//   },
+// const rootReducer = combineReducers({
+//   counter: counterReducer,
+//   todos: todosReducer,
+// });
+export const store = configureStore({
+  reducer: {
+    contacts: combineReducers({
+      items: itemsReducer,
+    }),
+    a: (prevA = '1', action) => {
+      if (action.type === 'addAction') {
+        return prevA + action.payload;
+      }
+      return prevA;
+    },
+  },
+});
