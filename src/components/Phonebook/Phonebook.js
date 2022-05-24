@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addAction } from '../../redux/contacts/action';
+import { addAction } from '../../redux/contacts/contactsActions';
 
 export default function Phonebook() {
   const contacts = useSelector(state => state.contacts.items);
@@ -21,7 +21,7 @@ export default function Phonebook() {
     setNumber(e.currentTarget.value);
   };
   const handleSubmit = e => {
-    console.log('contacts: ', contacts);
+    // console.log('contacts: ', contacts);
     e.preventDefault();
     const isContactExist = contacts.some(
       elem => elem.name === name && elem.number === number
