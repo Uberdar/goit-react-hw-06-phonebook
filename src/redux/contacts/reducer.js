@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { deleteidAction, addAction } from './action';
+import { deleteidAction, addAction, searchAction, showAll } from './action';
 
 //   setDataBase(dataBase.filter(elem => elem.id !== DBid));
 // [{ id: 1, name: 'ttt', number: 200000 }]
@@ -19,6 +19,18 @@ export const itemsReducer = createReducer(
       const contacts = [...state, action.payload];
       localStorage.setItem('localDB', JSON.stringify(contacts));
       return contacts;
+    },
+    [searchAction]: (state, action) => {
+      return state.filter(elem =>
+        elem.name
+          .toLocaleLowerCase()
+          .includes(action.payload.toLocaleLowerCase())
+      );
+    },
+    [showAll]: () => {
+      let getLocalStorage = localStorage.getItem('localDB');
+      let parceLocalStorage = JSON.parse(getLocalStorage);
+      return parceLocalStorage;
     },
   }
 );

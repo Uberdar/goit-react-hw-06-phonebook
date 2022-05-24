@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteidAction } from '../../redux/actions/action';
+import { deleteidAction } from '../../redux/contacts/action';
 
 export default function TodoRender() {
   const dispatch = useDispatch();

@@ -1,10 +1,11 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addAction } from '../../redux/actions/action';
+import { addAction } from '../../redux/contacts/action';
 
 export default function Phonebook() {
   const contacts = useSelector(state => state.contacts.items);
+
   const dispatch = useDispatch();
 
   const firstFormNameId = nanoid();
@@ -20,11 +21,12 @@ export default function Phonebook() {
     setNumber(e.currentTarget.value);
   };
   const handleSubmit = e => {
+    console.log('contacts: ', contacts);
     e.preventDefault();
     const isContactExist = contacts.some(
       elem => elem.name === name && elem.number === number
     );
-    console.log('isContactExist: ', isContactExist);
+    // console.log('isContactExist: ', isContactExist);
     if (isContactExist) {
       return;
     }
